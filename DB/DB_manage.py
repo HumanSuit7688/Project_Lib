@@ -35,7 +35,6 @@ cur = connect.cursor()
 #             ''
 #             ')')
 
-cur.execute('SELECT ')
 
 connect.commit()
 connect.close()

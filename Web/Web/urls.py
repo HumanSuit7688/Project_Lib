@@ -1,6 +1,8 @@
-from django.urls import path
-from welcome import views
+from django.contrib import admin
+from django.urls import path, include
+
 
 urlpatterns = [
-    path('', views.test, name='home'),
+    path('admin/', admin.site.urls),
+    path('welcome/', include('welcome.urls'))
 ]

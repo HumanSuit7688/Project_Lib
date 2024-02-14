@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Lyceum Library</title>
+</head>
+<body>
+    <h1><p style="text-align: center;">Сайт библиотеки Лицея № 1</p></h1>
+    <h3><p style="text-align: center;">{{ semi_title }}</p></h3>
+    <form style="text-align: center;" method="POST" action="sign_up/process/">
+        {% csrf_token %}
+    <table style="text-align: center;">
+        {{ form.as_table }}<br />
+    </table>
+    <input type="submit" value="Enter">
+</form>
+</body>
+</html>

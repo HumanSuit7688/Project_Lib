@@ -11,15 +11,16 @@ def welcome(request):
     redirect_contacts = reverse("info-type", args=['contacts'])
     redirect_sign_up = reverse('sign_up')
     redirect_log_in = reverse('log_in')
+    redirect_main = 'http://127.0.0.1:8000/main/'
 
-    all_users = User.objects.all()
-    print(all_users)
-
-    for i in all_users:
-        print(i.id, i.surname, i.name, i.grade_c, i.grade_b)
+    # all_users = User.objects.all()
+    # print(all_users)
+    #
+    # for i in all_users:
+    #     print(i.id, i.surname, i.name, i.grade_c, i.grade_b)
 
     return render(request, 'welcome.html', {"redirect_about" : redirect_about, "redirect_contacts" : redirect_contacts,
-                                            "redirect_sign_up" : redirect_sign_up, "redirect_log_in" : redirect_log_in})
+                                            "redirect_sign_up" : redirect_sign_up, "redirect_log_in" : redirect_log_in, "redirect_main" : redirect_main})
 
 
 def welcome_info_types(request, info_type: str):

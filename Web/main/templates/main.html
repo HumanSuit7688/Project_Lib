@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lyceum Library</title>
+</head>
+<body>
+<h1><p style="text-align: center;">Сайт библиотеки Лицея № 1</p></h1>
+<p style="text-align: center;">Это главная страница нашего сайта, здесь вы можете увидеть весь список книг в бибилиотеке</p>
+<h4 style="text-align: center;">Книги:</h4>
+{% autoescape off %}
+{{ body_books }}
+{% endautoescape %}
+</body>
+</html>

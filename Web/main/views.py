@@ -28,9 +28,8 @@ def book_info(request, book_id : int):
     public_office = book.public_office
     born_year = book.born_year
     pages = book.pages
-    amount = book.amount
 
-    return render(request, 'book_info.html', {"author" : author, "name" : name, "public_office": public_office, "public_year" : born_year, "pages" : pages, "amount" : amount})
+    return render(request, 'book_info.html', {"author": author, "name": name, "public_office": public_office, "public_year": born_year, "pages": pages})
 
 
 

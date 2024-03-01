@@ -11,16 +11,13 @@ def welcome(request):
     redirect_contacts = reverse("info-type", args=['contacts'])
     redirect_sign_up = reverse('sign_up')
     redirect_log_in = reverse('log_in')
-    redirect_main = 'http://127.0.0.1:8000/main/'
+    redirect_main = reverse('main')
 
-    # all_users = User.objects.all()
-    # print(all_users)
-    #
-    # for i in all_users:
-    #     print(i.id, i.surname, i.name, i.grade_c, i.grade_b)
-
-    return render(request, 'welcome.html', {"redirect_about" : redirect_about, "redirect_contacts" : redirect_contacts,
-                                            "redirect_sign_up" : redirect_sign_up, "redirect_log_in" : redirect_log_in, "redirect_main" : redirect_main})
+    return render(request, 'welcome.html', {"redirect_about" : redirect_about,
+                                            "redirect_contacts" : redirect_contacts,
+                                            "redirect_sign_up" : redirect_sign_up,
+                                            "redirect_log_in" : redirect_log_in,
+                                            "redirect_main" : redirect_main})
 
 
 def welcome_info_types(request, info_type: str):
@@ -63,8 +60,8 @@ def sign_up_form(request):
                  redirect_sign_up = reverse("sign_up")
                  return render(request, "welcome_error.html", {"error_text": error_text, "href": redirect_sign_up})
 
-            new_user = User(surname=surname, name=name, patronymic=patronymic, grade_c=grade_c, grade_b=grade_b, email=email, password=password)
-            new_user.save()
+            # new_user = User(surname=surname, name=name, patronymic=patronymic, grade_c=grade_c, grade_b=grade_b, email=email, password=password)
+            # new_user.save()
             return HttpResponse(f'Фамилия: {surname}, '
                             f'Имя: {name}, '
                             f'Отчество: {patronymic}, '
@@ -72,17 +69,10 @@ def sign_up_form(request):
                             f'Пароль: {password}, '
                             f'Пароль 2 раз: {password2}')
         else:
-            error_text = 'Вы не выбрали цифру или букву класса!!! Вернитесь и исправьте пожалуйста'
+            error_text = 'Вы не выбрали цифру или букву класса! Вернитесь и исправьте пожалуйста'
             redirect_sign_up = reverse("sign_up")
             return render(request, "welcome_error.html", {"error_text": error_text, "href": redirect_sign_up})
     else:
         error_text = 'Пароли в двух полях не совпадают, проверьте и напишите еще раз.'
         redirect_sign_up = reverse("sign_up")
         return render(request, "welcome_error.html", {"error_text" : error_text, "href" : redirect_sign_up})
-
-
-# def test(request):
-#     user = User()
-#     all_users = user.objects.all()
-#     print(all_users)
-#     return HttpResponse('Тестовая страница')
